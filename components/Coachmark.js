@@ -12,6 +12,7 @@ export default class Coachmark extends Component {
     onShow: PropTypes.func,
     isAnchorReady: PropTypes.bool,
     renderArrow: PropTypes.func,
+    renderContent: PropTypes.func,
   };
 
   static defaultProps = {
@@ -133,6 +134,7 @@ export default class Coachmark extends Component {
           position={this.state.position}
           message={this.props.message}
           renderArrow={this.props.renderArrow}
+          renderContent={this.props.renderContent}
         />
       </View>
     );

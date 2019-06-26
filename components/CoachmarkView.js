@@ -7,11 +7,13 @@ export default class CoachmarkView extends Component {
   static propTypes = {
     position: PropTypes.oneOf([K_POSITION_TOP, K_POSITION_BOTTOM]),
     renderArrow: PropTypes.func,
+    renderContent: PropTypes.func,
   };
 
   static defaultProps = {
     position: K_POSITION_TOP,
     renderArrow: ({ x, position }) => <CoachmarkArrow x={x} position={position} />,
+    renderContent: () => <View />,
   };
 
   renderCoachmarkContent() {
@@ -29,11 +31,13 @@ export default class CoachmarkView extends Component {
       <React.Fragment>
         {this.renderCoachmarkArrow()}
         {this.renderCoachmarkContent()}
+        {this.props.renderContent()}
       </React.Fragment>
     ) : (
       <React.Fragment>
         {this.renderCoachmarkContent()}
         {this.renderCoachmarkArrow()}
+        {this.props.renderContent()}
       </React.Fragment>
     );
   }
